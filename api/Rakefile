@@ -1,0 +1,10 @@
+require 'sinatra/activerecord/rake'
+require './app'
+require_relative 'lib/mtg_tracker.rb'
+
+namespace :annotate do
+    desc "Annotate your models"
+    task :models do |t, args|
+      exec "annotate  --model-dir lib/mtg_tracker/models"
+    end
+end
