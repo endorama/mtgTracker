@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725162242) do
+ActiveRecord::Schema.define(version: 20140725181606) do
+
+  create_table "cards", force: true do |t|
+    t.string   "name"
+    t.string   "name_it"
+    t.string   "number"
+    t.integer  "set_id"
+    t.string   "image_name"
+    t.integer  "rarity"
+    t.integer  "multiverse_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cards", ["name", "set_id"], name: "index_cards_on_name_and_set_id"
 
   create_table "sets", force: true do |t|
     t.string   "code"
