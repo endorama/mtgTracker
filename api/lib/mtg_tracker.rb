@@ -2,7 +2,11 @@
 require_relative 'generic/string'
 
 require_relative 'mtg_tracker/version'
-require_relative 'mtg_tracker/models'
+# Require all models
+Dir.glob('./lib/mtg_tracker/models/*.rb').each { |file| require "#{file}" }
+require_relative 'mtg_tracker/application'
+# Require all controllers
+Dir.glob('./lib/mtg_tracker/controllers/*.rb').each { |file| require "#{file}" }
 
 module MtgTracker
 end
