@@ -13,8 +13,8 @@ module MtgTracker
     set :raise_errors, true
     set :show_exceptions, true
 
-    ## set :bind, 'localhost'
-    ## set :port, 4567
+    # set :bind, 'localhost'
+    # set :port, 4567
 
     helpers Sinatra::ReplyHelpers
     helpers Sinatra::RequestHelpers
