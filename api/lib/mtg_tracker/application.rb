@@ -23,7 +23,7 @@ module MtgTracker
     helpers Sinatra::RequestHelpers
 
     not_found do
-      reply_with_error 'URL not found', 404
+      reply_with_error 404
     end
 
     get '/' do
