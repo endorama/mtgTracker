@@ -9,7 +9,7 @@ require_relative './sinatra/request'
 module MtgTracker
   class Application < Sinatra::Base
 
-    set :logging, true
+    set :logging, true # or :logging, nil and env['rack.logger'] = logger
     set :dump_error, true
     set :raise_errors, true
     set :show_exceptions, true
