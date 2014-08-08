@@ -5,6 +5,7 @@ require_relative '../models'
 module MtgTracker
   class Card < ActiveRecord::Base
     belongs_to :set
+    has_and_belongs_to_many :collections
     
     validates :name, :number, :set_id, :image_name, :rarity, :multiverse_id,
       presence: true
