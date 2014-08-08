@@ -6,41 +6,41 @@ module Sinatra
 
     def reply_with data
       content_type @type
-      { error: nil, message: nil, data: data }.to_json
+      { message: nil, data: data }.to_json
     end
     
-    def reply_with_error code, error = nil
+    def reply_with_error code, message = nil
       content_type @type
 
-      unless error
+      unless message
         case code
           when 400
-            error = 'Bad Request'
+            message = 'Bad Request'
           when 401
-            error = 'Unauthorized'
+            message = 'Unauthorized'
           when 403
-            error = 'Forbidden'
+            message = 'Forbidden'
           when 404
-            error = 'Not Found'
+            message = 'Not Found'
           when 405
-            error = 'Method Not Allowed'
+            message = 'Method Not Allowed'
           when 422
-            error = 'Unprocessable Entity'
+            message = 'Unprocessable Entity'
           when 500
-            error = 'Internal Server Error'
+            message = 'Internal Server Error'
           when 501
-            error = 'Not Implemented'
+            message = 'Not Implemented'
           else
-            error = "Unexpected error code: #{code}"
+            message = "Unexpected error code: #{code}"
         end
       end
 
-      halt code, { error: error, message: nil, data: nil }.to_json
+      halt code, { message: message, data: nil }.to_json
     end
 
     def reply_with_message message
       content_type @type
-      { error: nil, message: message, data: nil }.to_json
+      { message: message, data: nil }.to_json
     end
   end
 
