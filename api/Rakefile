@@ -1,10 +1,17 @@
-require 'sinatra/activerecord/rake'
-require './app'
-require_relative 'lib/mtg_tracker.rb'
 
+require 'sinatra'
+require 'sinatra/activerecord'
+require 'sinatra/activerecord/rake'
+
+require_relative 'lib/mtg_tracker'
+
+# Set correct database configuration
+ActiveRecord::Tasks::DatabaseTasks.database_configuration = YAML.load_file("config/database.yml")
+
+# Annotate gem task
 namespace :annotate do
     desc "Annotate your models"
     task :models do |t, args|
-      exec "annotate  --model-dir lib/mtg_tracker/models"
+      exec "annotate  --model-dir lib/mtg_tracker/models --position after"
     end
 end
