@@ -1,6 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 require 'sinatra/base'
+require 'sinatra/activerecord'
 
 require_relative './sinatra/reply'
 require_relative './sinatra/request'
@@ -15,6 +16,8 @@ module MtgTracker
 
     # set :bind, 'localhost'
     # set :port, 4567
+
+    set :database_file, "../../config/database.yml"
 
     helpers Sinatra::ReplyHelpers
     helpers Sinatra::RequestHelpers
