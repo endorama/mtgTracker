@@ -1,6 +1,6 @@
 require 'active_record'
 
-require_relative '../models'
+require_relative '../models/Card'
 
 module MtgTracker
   class Set < ActiveRecord::Base
