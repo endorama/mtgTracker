@@ -3,8 +3,9 @@ source 'http://rubygems.org'
 gem 'json'
 # gem 'rest-client', '1.6.7'
 gem 'sinatra', '1.4.5'
-gem 'activerecord'
 gem 'sinatra-activerecord'
+gem 'sinatra-contrib'
+gem 'activerecord'
 gem 'rubyzip'
 
 group :development do
