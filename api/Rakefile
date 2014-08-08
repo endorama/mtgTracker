@@ -10,8 +10,15 @@ ActiveRecord::Tasks::DatabaseTasks.database_configuration = YAML.load_file("conf
 
 # Annotate gem task
 namespace :annotate do
-    desc "Annotate your models"
-    task :models do |t, args|
-      exec "annotate  --model-dir lib/mtg_tracker/models --position after"
-    end
+  desc "Annotate your models"
+  task :models do |t, args|
+    exec "annotate  --model-dir lib/mtg_tracker/models --position after"
+  end
+end
+
+namespace :app do
+  desc "Run backend"
+  task :run do |t, args|
+    exec 'rerun --clear --dir lib -- rackup -p 4567'
+  end
 end
