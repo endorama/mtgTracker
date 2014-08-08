@@ -3,8 +3,8 @@
 require 'sinatra/base'
 require 'sinatra/activerecord'
 
-require_relative './sinatra/reply'
-require_relative './sinatra/request'
+require_relative 'sinatra/reply'
+require_relative 'sinatra/request'
 
 module MtgTracker
   class Application < Sinatra::Base
