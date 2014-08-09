@@ -11,7 +11,7 @@ class CreateCollections < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :collections, [ :name ]
+    add_index :collections, [ :name ], :unique => true
 
   end
 end

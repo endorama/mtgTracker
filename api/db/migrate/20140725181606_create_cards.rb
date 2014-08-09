@@ -12,7 +12,8 @@ class CreateCards < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :cards, [ :name, :set_id ]
+    add_index :cards, [ :set_id ]
+    add_index :cards, [ :name, :set_id ], unique: true
 
   end
 end

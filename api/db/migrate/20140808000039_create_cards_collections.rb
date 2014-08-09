@@ -6,6 +6,7 @@ class CreateCardsCollections < ActiveRecord::Migration
       t.integer :collection_id
     end
 
+    add_index :cards_collections, [ :card_id ]
     add_index :cards_collections, [ :collection_id ]
 
   end

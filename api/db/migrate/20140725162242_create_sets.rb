@@ -8,7 +8,7 @@ class CreateSets < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :sets, :code
+    add_index :sets, [ :code ], unique: true
 
   end
 end
