@@ -19,7 +19,7 @@ module MtgTracker
 
     get '/:id' do
       unless params[:id].numeric?
-        reply_with_error 422, 'Id should be numeric'
+        halt_with_400 'Id should be numeric'
       end
       
       begin
@@ -31,11 +31,11 @@ module MtgTracker
     end
 
     put '/:id' do
-      reply_with_error 501
+      halt_with_501
     end
 
     delete '/:id' do
-      reply_with_error 501
+      halt_with_501
     end
   end
 end

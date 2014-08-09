@@ -6,6 +6,7 @@ require 'json'
 require 'sinatra/json'
 require 'sinatra/respond_with'
 
+require_relative 'sinatra/error_handling'
 # require_relative 'sinatra/reply'
 # require_relative 'sinatra/request'
 
@@ -22,6 +23,7 @@ module MtgTracker
     # set :bind, 'localhost'
     # set :port, 4567
     register ::Sinatra::RespondWith
+    register ::Sinatra::ErrorHandling
 
     set :database_file, "../../config/database.yml"
     respond_to :json
