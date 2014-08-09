@@ -2,11 +2,11 @@
 
 require 'sinatra/base'
 
-require_relative 'BaseController'
+require_relative '../application'
 require_relative '../models/Collection'
 
 module MtgTracker
-  class CollectionsController < BaseController
+  class CollectionsController < Application
 
     get '/' do
       items = MtgTracker::Collection.all
