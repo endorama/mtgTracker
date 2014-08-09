@@ -14,7 +14,8 @@ module MtgTracker
     end
 
     post '/' do
-      reply_with_error 501
+      collection = MtgTracker::Collection.create!({ name: payload[:name] })
+      respond_with collection: collection
     end
 
     get '/:id' do
