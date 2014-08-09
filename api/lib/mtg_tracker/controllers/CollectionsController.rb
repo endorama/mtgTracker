@@ -23,12 +23,8 @@ module MtgTracker
         halt_with_400 'Id should be numeric'
       end
       
-      begin
-        item = MtgTracker::Collection.find params[:id]
-        reply_with({ collection: item })
-      rescue ActiveRecord::RecordNotFound
-        reply_with_error 404, "Can't find Collection with id #{params[:id]}"
-      end
+      item = MtgTracker::Collection.find params[:id]
+      respond_with collection: item
     end
 
     put '/:id' do
