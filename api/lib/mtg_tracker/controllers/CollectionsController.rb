@@ -10,7 +10,7 @@ module MtgTracker
 
     get '/' do
       items = MtgTracker::Collection.all
-      reply_with({ collections: items })
+      respond_with collections: items
     end
 
     post '/' do
