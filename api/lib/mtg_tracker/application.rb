@@ -34,9 +34,15 @@ module MtgTracker
     # helpers ::Sinatra::ReplyHelpers
     # helpers Sinatra::RequestHelpers
 
+    def payload
+      @payload
+    end
 
-    not_found do
-      reply_with_error 404
+    before do
+      next unless request.post? or request.put?
+      request.body.rewind
+      # don't try to read request.body here, cause is a strem and you'll have to rewind it
+      @payload = JSON.parse(request.body.read, symbolize_names: true)
     end
 
     get '/' do
