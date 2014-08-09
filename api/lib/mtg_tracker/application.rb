@@ -13,23 +13,27 @@ require_relative 'sinatra/error_handling'
 module MtgTracker
   class Application < Sinatra::Base
 
-    set :logging, true # or :logging, nil and env['rack.logger'] = logger
-    set :dump_error, true
-    set :raise_errors, true
-    set :show_exceptions, true
+    configure do
+      # Don't log them. We'll do that ourself
+      disable :dump_errors
+      # Don't capture any errors. Throw them up the stack
+      enable :raise_errors
+      # Disable internal middleware for presenting errors as useful HTML pages
+      disable :show_exceptions
+      # Default set by sinatra/activerecord
+      # set :database_file, "../../config/database.yml"
+    end
 
     helpers ::Sinatra::JSON
 
-    # set :bind, 'localhost'
-    # set :port, 4567
     register ::Sinatra::RespondWith
     register ::Sinatra::ErrorHandling
 
-    set :database_file, "../../config/database.yml"
     respond_to :json
 
-    helpers Sinatra::ReplyHelpers
-    helpers Sinatra::RequestHelpers
+    # helpers ::Sinatra::ReplyHelpers
+    # helpers Sinatra::RequestHelpers
+
 
     not_found do
       reply_with_error 404
