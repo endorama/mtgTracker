@@ -18,7 +18,10 @@ end
 
 namespace :app do
   desc "Run backend"
-  task :run do |t, args|
-    exec 'rerun --clear --dir lib -- rackup -p 4567'
+  task :run, [:env] do |t, args|
+    env = args[:env] || 'development'
+
+    puts "Running in #{env} mode"
+    exec "rerun --clear --dir lib -- rackup -E #{env} -p 4567"
   end
 end
