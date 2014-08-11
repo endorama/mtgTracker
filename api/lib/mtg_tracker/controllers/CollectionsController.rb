@@ -33,7 +33,9 @@ module MtgTracker
     end
 
     delete '/:id' do
-      halt_with_501
+      collection = Collection.find(params[:id])
+      collection.destroy
+      respond_with collection
     end
   end
 end
