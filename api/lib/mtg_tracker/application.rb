@@ -8,6 +8,8 @@ require_relative 'sinatra/error_handling'
 # require_relative 'sinatra/reply'
 # require_relative 'sinatra/request'
 
+ActiveRecord::Base.include_root_in_json = true
+
 module MtgTracker
   class Application < Sinatra::Base
 
