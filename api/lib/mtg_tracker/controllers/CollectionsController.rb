@@ -15,7 +15,7 @@ module MtgTracker
 
     post '/' do
       collection = MtgTracker::Collection.create!({ name: payload[:name] })
-      respond_with collection: collection
+      respond_with collection
     end
 
     get '/:id' do
@@ -24,7 +24,7 @@ module MtgTracker
       end
       
       item = MtgTracker::Collection.find params[:id]
-      respond_with collection: item
+      respond_with item
     end
 
     put '/:id' do
