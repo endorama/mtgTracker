@@ -1,8 +1,6 @@
 
 # Put this in a seed file
 
-require 'active_record'
-require 'sqlite3'
 require 'logger'
 
 require_relative './helper'
@@ -13,10 +11,8 @@ CARD_LIST_URL = 'http://mtgjson.com/json/AllSets-x.json.zip'
 logger = Logger.new(STDOUT)
 logger.level = Logger::INFO
 
-# - ActiveRecord configs -
-ActiveRecord::Base.logger = logger
-ActiveRecord::Base.configurations = YAML::load(IO.read('config/database.yml'))
-ActiveRecord::Base.establish_connection(:development)
+establish_db_connection logger
+
 
 # - script execution -
 

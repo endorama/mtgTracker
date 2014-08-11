@@ -1,7 +1,4 @@
 
-require 'active_record'
-require 'sqlite3'
-
 # Put this in a seed file?
 
 require 'logger'
@@ -14,10 +11,7 @@ SET_LIST_URL = 'http://mtgjson.com/json/SetList.json'
 logger = Logger.new(STDOUT)
 logger.level = Logger::INFO
 
-# - ActiveRecord configs -
-ActiveRecord::Base.logger = logger
-ActiveRecord::Base.configurations = YAML::load(IO.read('config/database.yml'))
-ActiveRecord::Base.establish_connection(:development)
+establish_db_connection logger
 
 # - script execution -
 

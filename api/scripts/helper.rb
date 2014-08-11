@@ -1,6 +1,18 @@
 
 # - helper function -
 
+def establish_db_connection(logger = nil)
+  require 'active_record'
+  require 'sqlite3'
+  require 'logger'
+
+  logger ||= Logger.new(STDOUT)
+  
+  ActiveRecord::Base.logger = logger
+  ActiveRecord::Base.configurations = YAML::load(IO.read('config/database.yml'))
+  ActiveRecord::Base.establish_connection(:development)
+end
+
 def download(url, location)
   require 'open-uri'
   open(location, 'wb') do |file|
