@@ -26,7 +26,10 @@ module MtgTracker
     end
 
     put '/:id' do
-      halt_with_501
+      collection = Collection.find(params[:id])
+      collection = Collection.update(collection.id, payload)
+      respond_with collection
+
     end
 
     delete '/:id' do
