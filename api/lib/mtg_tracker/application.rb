@@ -2,8 +2,6 @@
 
 require 'sinatra/base'
 require 'sinatra/activerecord'
-require 'json'
-require 'sinatra/json'
 require 'sinatra/respond_with'
 
 require_relative 'sinatra/error_handling'
@@ -23,8 +21,6 @@ module MtgTracker
       # Default set by sinatra/activerecord
       # set :database_file, "../../config/database.yml"
     end
-
-    helpers ::Sinatra::JSON
 
     register ::Sinatra::RespondWith
     register ::Sinatra::ErrorHandling
