@@ -7,5 +7,13 @@ module MtgTracker
     
     validates :code, :name, :release_date, presence: true
     validates :code, :name, uniqueness: true
+
+    def serializable_hash(options = {})
+      options = options.try(:clone) || {}
+
+      options[:except] = [ :created_at, :updated_at ]
+
+      super(options)
+    end
   end
 end

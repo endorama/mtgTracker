@@ -23,5 +23,14 @@ module MtgTracker
       write_attribute(:rarity, rarity)
     end
 
+    def serializable_hash(options = {})
+      options = options.try(:clone) || {}
+
+      options[:except] = [ :created_at, :updated_at ]
+      options[:include] = :set
+
+      super(options)
+    end
+
   end
 end

@@ -9,5 +9,14 @@ module MtgTracker
     validates :name,
       presence: true,
       uniqueness: true
+
+    # def serializable_hash(options = {})
+    #   options = options.try(:clone) || {}
+    #   # This will lead to A LOT of data...
+    #   # a cool idea could be to limit the query and add pagination
+    #   options[:include] = :cards
+
+    #   super(options)
+    # end
   end
 end
