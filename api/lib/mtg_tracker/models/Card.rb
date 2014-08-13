@@ -5,7 +5,7 @@ module MtgTracker
     belongs_to :set
     has_and_belongs_to_many :collections
     
-    validates :name, :number, :set_id, :image_name, :rarity, :multiverse_id,
+    validates :name, :set_id, :image_name, :rarity, :multiverse_id,
       presence: true
     validates :name, uniqueness: {
       scope: :set_id,
