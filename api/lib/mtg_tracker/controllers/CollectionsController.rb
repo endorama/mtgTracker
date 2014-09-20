@@ -42,5 +42,32 @@ module MtgTracker
       collection.destroy
       respond_with collection
     end
+
+    # Retrieve collection cards
+    get '/:id/cards' do
+      collection = Collection.find(params[:id])
+      respond_with({collection_id: collection.id, cards: collection.cards})
+    end
+
+    # Add a card to the collection
+    post '/:id/cards' do
+      card = Card.find(payload[:id])
+      Collection.find(params[:id]).cards.push(card)
+
+      # we need to refetch the collection
+      collection = Collection.find(params[:id])
+      respond_with({collection_id: collection.id, cards: collection.cards})
+    end
+
+    # Delete a card from the collection
+    delete '/:id/cards' do 
+      card = Card.find(payload[:id])
+      Collection.find(params[:id]).cards.delete(card)
+
+      # we need to refetch the collection
+      collection = Collection.find(params[:id])
+      respond_with({collection_id: collection.id, cards: collection.cards})
+    end
+
   end
 end
