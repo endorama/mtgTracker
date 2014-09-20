@@ -21,7 +21,7 @@ module Sinatra
       end
  
       def halt_with_404
-        halt 404, json(message: "Not found", data: nil)
+        halt 404, json(message: "Record not found", data: nil)
       end
  
       def halt_with_422
