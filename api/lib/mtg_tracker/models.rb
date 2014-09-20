@@ -2,4 +2,5 @@
 
 require_relative 'models/Card'
 require_relative 'models/Collection'
+require_relative 'models/Collectionable'
 require_relative 'models/Set'

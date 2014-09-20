@@ -4,8 +4,13 @@ require 'active_record'
 
 module MtgTracker
   class Collection < ActiveRecord::Base
-    has_and_belongs_to_many :cards
-    
+    has_many :collectionables,
+      dependent: :destroy
+
+    has_many :cards, 
+      through: :collectionables
+      
+
     validates :name,
       presence: true,
       uniqueness: true

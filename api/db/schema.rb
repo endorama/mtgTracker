@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140808000039) do
+ActiveRecord::Schema.define(version: 20140811233125) do
 
   create_table "cards", force: true do |t|
     t.string   "name"
@@ -25,14 +25,18 @@ ActiveRecord::Schema.define(version: 20140808000039) do
     t.datetime "updated_at"
   end
 
-  add_index "cards", ["name", "set_id"], name: "index_cards_on_name_and_set_id"
+  add_index "cards", ["name", "set_id"], name: "index_cards_on_name_and_set_id", unique: true
+  add_index "cards", ["set_id"], name: "index_cards_on_set_id"
 
-  create_table "cards_collections", id: false, force: true do |t|
-    t.integer "card_id"
-    t.integer "collection_id"
+  create_table "collectionables", force: true do |t|
+    t.integer  "card_id"
+    t.integer  "collection_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "cards_collections", ["collection_id"], name: "index_cards_collections_on_collection_id"
+  add_index "collectionables", ["card_id"], name: "index_collectionables_on_card_id"
+  add_index "collectionables", ["collection_id"], name: "index_collectionables_on_collection_id"
 
   create_table "collections", force: true do |t|
     t.string   "name"
@@ -43,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140808000039) do
     t.datetime "updated_at"
   end
 
-  add_index "collections", ["name"], name: "index_collections_on_name"
+  add_index "collections", ["name"], name: "index_collections_on_name", unique: true
 
   create_table "sets", force: true do |t|
     t.string   "code"
@@ -53,6 +57,6 @@ ActiveRecord::Schema.define(version: 20140808000039) do
     t.datetime "updated_at"
   end
 
-  add_index "sets", ["code"], name: "index_sets_on_code"
+  add_index "sets", ["code"], name: "index_sets_on_code", unique: true
 
 end

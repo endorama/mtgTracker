@@ -3,7 +3,8 @@ require 'active_record'
 module MtgTracker
   class Card < ActiveRecord::Base
     belongs_to :set
-    has_and_belongs_to_many :collections
+    has_many :collectionables
+    has_many :collections, through: :collectionables
     
     validates :name, :set_id, :image_name, :rarity, :multiverse_id,
       presence: true
