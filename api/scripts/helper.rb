@@ -6,11 +6,12 @@ def establish_db_connection(logger = nil)
   require 'sqlite3'
   require 'logger'
 
+  env = ENV['MTGTRACKER_ENV'] || 'development'
   logger ||= Logger.new(STDOUT)
   
   ActiveRecord::Base.logger = logger
   ActiveRecord::Base.configurations = YAML::load(IO.read('config/database.yml'))
-  ActiveRecord::Base.establish_connection(:development)
+  ActiveRecord::Base.establish_connection(env.to_sym)
 end
 
 def download(url, location)
