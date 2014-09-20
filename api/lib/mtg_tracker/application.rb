@@ -44,7 +44,7 @@ module MtgTracker
     end
 
     get '/' do
-      reply_with_message 'Hello World!'
+      respond_with 'Hello World!'
     end
   end
 end
