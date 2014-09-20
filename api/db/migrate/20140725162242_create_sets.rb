@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+
 class CreateSets < ActiveRecord::Migration
   def change
 
