@@ -8,6 +8,8 @@ module MtgTracker
       dependent: :destroy
 
     has_many :cards, 
+      # This adds a .quantity property to the card objects
+      lambda { select('cards.*, cards.id as "card_id", count(card_id) as "quantity"').group(:card_id) },
       through: :collectionables
       
 
