@@ -9,7 +9,7 @@ module MtgTracker
     # Retrieve all collections
     get '/' do
       items = Collection.all
-      respond_with collections: items
+      respond_with items
     end
 
     # Create a new collection
@@ -46,7 +46,7 @@ module MtgTracker
     # Retrieve collection cards
     get '/:id/cards' do
       collection = Collection.find(params[:id])
-      respond_with({collection_id: collection.id, cards: collection.cards})
+      respond_with collection.cards
     end
 
     # Add a card to the collection
@@ -56,7 +56,7 @@ module MtgTracker
 
       # we need to refetch the collection
       collection = Collection.find(params[:id])
-      respond_with({collection_id: collection.id, cards: collection.cards})
+      respond_with collection.cards
     end
 
     # Delete a card from the collection
@@ -66,7 +66,7 @@ module MtgTracker
 
       # we need to refetch the collection
       collection = Collection.find(params[:id])
-      respond_with({collection_id: collection.id, cards: collection.cards})
+      respond_with cards: collection.cards
     end
 
   end
