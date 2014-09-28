@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="btn-group col-md-12">
+    <button type="button" class="btn btn-default">Add</button>
+    <button type="button" class="btn btn-default">Middle</button>
+    <button type="button" class="btn btn-default">Right</button>
+  </div>
+</div>
+
+<div class="row">
+  <p class="col-md-12">
+    List your collections
+  </p>
+</div>
+
+<div class="row">
+  <table class="col-md-12 table table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="collection in CollectionsIndexCtrl.collections">
+        <td>
+          {{collection.id}}
+        </td>
+        <td>
+          <a ui-sref="collection({id: collection.id})">{{collection.name}}</a>
+        </td>
+        <td>
+          <a ng-click="CollectionsIndexCtrl.edit(collection.id)">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </a>
+        </td>
+        <td>
+          <a ng-click="CollectionsIndexCtrl.delete(collection.id)">
+            <span class="glyphicon glyphicon-remove"></span>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

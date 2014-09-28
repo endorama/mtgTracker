@@ -1,0 +1,46 @@
+
+<div class="row">
+  <p class="col-md-12">
+    View cards in {{CollectionsShowCtrl.collection.name}}
+  </p>
+</div>
+
+<div class="row">
+  <table class="col-md-12 table table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Image</th>
+        <th>Set</th>
+        <th>Rarity</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="card in CollectionsShowCtrl.cards">
+        <td>
+          {{card.id}}
+        </td>
+        <td>
+          <a ui-sref="cards({id: card.id})">{{card.name}}</a>
+        </td>
+        <td>
+          {{card.quantity}}
+        </td>
+        <td>
+          <span class="glyphicon glyphicon-eye-open"></span>
+          <!-- <img src="http://mtgimage.com/card/{{card.image_name}}.jpg"> -->
+        </td>
+        <td>
+          {{card.set.code}}
+        </td>
+        <td>
+          {{card.rarity}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
