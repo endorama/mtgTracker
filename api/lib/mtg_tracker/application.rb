@@ -3,6 +3,7 @@
 require 'sinatra/base'
 require 'sinatra/activerecord'
 require 'sinatra/respond_with'
+require 'sinatra/cross_origin'
 
 require_relative 'sinatra/error_handling'
 # require_relative 'sinatra/reply'
@@ -12,6 +13,10 @@ ActiveRecord::Base.include_root_in_json = true
 
 module MtgTracker
   class Application < Sinatra::Base
+
+    register ::Sinatra::RespondWith
+    register ::Sinatra::ErrorHandling
+    register ::Sinatra::CrossOrigin
 
     configure do
       # Don't log them. We'll do that ourself
@@ -24,8 +29,15 @@ module MtgTracker
       # set :database_file, "../../config/database.yml"
     end
 
-    register ::Sinatra::RespondWith
-    register ::Sinatra::ErrorHandling
+    configure :development do
+      # enable cors request
+      enable :cross_origin
+      set :allow_origin, 'http://localhost:8000'
+      set :allow_methods, [:delete, :get, :post, :put, :options]
+      # set :allow_credentials, true
+      # set :max_age, "1728000"
+      set :expose_headers, ['Content-Type']
+    end
 
     respond_to :json
 
