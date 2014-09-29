@@ -25,3 +25,47 @@ namespace :app do
     exec "rerun --clear --dir lib -- rackup -E #{env} -p 4567"
   end
 end
+
+desc "Show available application routes"
+task :routes do
+  require_relative './lib/mtg_tracker.rb'
+  endpoints = {}
+
+  if Sinatra::Application.descendants.any?
+    #Classic application structure
+    applications = Sinatra::Application.descendants
+    applications.each do |app|
+      endpoints[app.to_s.to_sym] = app.routes
+    end
+  elsif Sinatra::Base.descendants.any?
+    #Modular application structure
+    applications = Sinatra::Base.descendants
+    applications.each do |app|
+      endpoints[app.to_s.to_sym] = app.routes
+    end
+  else
+    abort("Cannot find any defined routes.....")
+  end
+  
+  endpoints.each do |app_name,routes|
+    if app_name.to_s.include? 'Controller'
+      name = '/' + app_name.to_s.split('::')[1].gsub('Controller', '').downcase
+    else
+      name = ''
+    end
+
+    routes.each do |verb,handlers|
+      next if verb == 'HEAD'
+
+      vl = verb.length
+      diff = 'DELETE'.length - vl
+      verb_normalized = "#{verb}#{' '*diff}"
+
+      handlers.each do |handler|
+        handler_normalized = handler[0].source.gsub('\A', '').gsub('\z', '')
+        whites = ' '*(50-name.length-handler_normalized.length)
+        puts "#{verb_normalized} #{name}#{handler_normalized} #{whites}(#{app_name})"
+      end
+    end
+  end
+end
