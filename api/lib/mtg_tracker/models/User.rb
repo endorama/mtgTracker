@@ -10,7 +10,7 @@ module MtgTracker
       presence: true,
       uniqueness: true,
       format: { 
-        with: /([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})/i, 
+        with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, 
         message: "should be a valid email address"
       }
     validates :password, 
