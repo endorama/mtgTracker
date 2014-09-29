@@ -1,10 +1,10 @@
 # -*- encoding: utf-8 -*-
 
-require_relative '../application'
+require_relative './BaseController'
 require_relative '../models/Collection'
 
 module MtgTracker
-  class CollectionsController < Application
+  class CollectionsController < BaseController
 
     # Retrieve all collections
     get '/' do
