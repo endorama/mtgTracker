@@ -9,9 +9,8 @@ module Sinatra
         halt 400, json(message: message, data: nil)
       end
  
-      def halt_with_401(message = nil, realm = "App Name")
+      def halt_with_401(message = nil)
         message ||= "Authorization required"
-        headers 'WWW-Authenticate' => %(Basic realm="#{realm}")
         halt 401, json(message: message, data: nil)
       end
  
