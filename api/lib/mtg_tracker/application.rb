@@ -55,8 +55,25 @@ module MtgTracker
       @payload = JSON.parse(request.body.read, symbolize_names: true)
     end
 
+    retrieve_user do |user_id|
+      User.find user_id
+    end
+
     get '/' do
       respond_with 'Hello World!'
+      # redirect_to '/app/'
     end
+
+    get '/foo' do
+      authorize!
+      
+      <<-ENDRESPONSE
+        Ruby:    #{RUBY_VERSION}
+        Rack:    #{Rack::VERSION}
+        Sinatra: #{Sinatra::VERSION}
+        #{@current_user.id} | #{@current_user.email} | #{@current_user.created_at}
+      ENDRESPONSE
+    end
+
   end
 end
