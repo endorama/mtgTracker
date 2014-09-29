@@ -9,6 +9,7 @@ gem 'activerecord'
 gem 'rubyzip'
 gem "sinatra-cross_origin", "~> 0.3.1" # https://github.com/britg/sinatra-cross_origin
 gem 'bcrypt'
+gem 'jwt'
 
 group :development do
   gem 'rerun'

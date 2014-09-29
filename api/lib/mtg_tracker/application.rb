@@ -6,6 +6,7 @@ require 'sinatra/respond_with'
 require 'sinatra/cross_origin'
 
 require_relative 'sinatra/error_handling'
+require_relative 'sinatra/authentication'
 # require_relative 'sinatra/reply'
 # require_relative 'sinatra/request'
 
@@ -15,6 +16,7 @@ module MtgTracker
     register ::Sinatra::RespondWith
     register ::Sinatra::ErrorHandling
     register ::Sinatra::CrossOrigin
+    register ::Sinatra::Authentication
 
     configure do
       # Don't log them. We'll do that ourself
