@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140811233125) do
+ActiveRecord::Schema.define(version: 20140928164610) do
 
   create_table "cards", force: true do |t|
     t.string   "name"
@@ -58,5 +58,13 @@ ActiveRecord::Schema.define(version: 20140811233125) do
   end
 
   add_index "sets", ["code"], name: "index_sets_on_code", unique: true
+
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "password_hash"
+    t.string   "password_salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

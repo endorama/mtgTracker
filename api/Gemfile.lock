@@ -19,6 +19,7 @@ GEM
       rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
     backports (3.6.0)
+    bcrypt (3.1.7)
     builder (3.2.2)
     celluloid (0.15.2)
       timers (~> 1.1.0)
@@ -77,6 +78,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   annotate (>= 2.6.0)
+  bcrypt
   json
   rerun
   rubyzip
