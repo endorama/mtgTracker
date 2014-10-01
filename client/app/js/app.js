@@ -11,7 +11,7 @@
   ]);
 
   angular.module('mtgTracker')
-    .run(function($rootScope) {
+    .run(function($rootScope, $state) {
       // https://github.com/angular-ui/ui-router/wiki#state-change-events
       $rootScope.$on('$stateChangeStart', 
         function(event, toState, toParams, fromState, fromParams) {
@@ -33,8 +33,13 @@
 
       $rootScope.$on('$stateChangeError', 
         function(event, toState, toParams, fromState, fromParams, error){
-          console.error(event.name, error.message);
-          console.error(error.stack);
+          console.debug(arguments);
+          console.error(event.name, error.status, error.statusText);
+          if (error.status === 401) {
+            $state.go('login');
+            
+          }
+          // console.error(error.stack);
         });
 
     });
