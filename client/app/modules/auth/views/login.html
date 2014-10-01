@@ -1,0 +1,43 @@
+<div class="row vertical-center">
+  <div class="col-md-4 col-md-offset-4">
+    <div class="alert alert-danger" role="alert" ng-if="LoginCtrl.has_login_errors()">
+      {{LoginCtrl.login_errors()}}
+    </div>
+
+    <form role="form" class="form-horizontal" name="LoginForm" ng-submit="LoginCtrl.login(formData)" novalidate>
+      <div class="form-group" ng-class="{ 'has-error': LoginCtrl.form_has_error_on('email') }">
+        <label for="loginEmail" class="col-sm-2 control-label">Email</label>
+        <div class="col-md-10">
+          <input id="loginEmail" name="email"
+                  type="email" class="form-control" placeholder="Enter email"
+                  ng-model="formData.email" required>
+          <div ng-class="{ 'has-error': LoginCtrl.form_has_error_on('email') }" ng-if="LoginCtrl.form_has_error_on('email')">
+            <p ng-show="LoginForm.email.$error.required">
+              Should be a valid email address
+            </p>
+
+            <p ng-show="LoginForm.email.$error.email">
+              Should be a valid email address
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="loginPassword" class="col-sm-2 control-label">Password</label>
+        <div class="col-md-10">
+          <input id="loginPassword" name="password"
+                  type="password" class="form-control" placeholder="Enter password"
+                  ng-model="formData.password" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <!-- <button type="submit" class="btn btn-primary" ng-disabled="LoginForm.$invalid">Submit</button> -->
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
