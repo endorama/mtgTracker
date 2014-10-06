@@ -67,8 +67,14 @@ cards.each do |card|
   logger.debug "#{card.id} => #{card[:name]}"
 end
 
+logger.info 'Creating Users...'
+user1 = MtgTracker::User.create email: 'edoardo.tenani@gmail.com', password: '123456'
+user2 = MtgTracker::User.create email: 'asd@asd.com', password: '123123'
+
 logger.info 'Creating Collections...'
-coll1 = MtgTracker::Collection.create! name: "Foo Collection"
+# coll1 = MtgTracker::Collection.create! name: "Foo Collection"
+coll1 = user2.collections.create name: "Foo Collection"
+
 coll1.cards << MtgTracker::Card.find(1)
 coll1.cards << MtgTracker::Card.find(1)
 coll1.cards << MtgTracker::Card.find(2)
@@ -76,13 +82,15 @@ coll1.cards << MtgTracker::Card.find(2)
 coll1.cards << MtgTracker::Card.find(3)
 coll1.cards << MtgTracker::Card.find(3)
 
-coll2 = MtgTracker::Collection.create! name: "Bar Collection"
+# coll2 = MtgTracker::Collection.create! name: "Bar Collection"
+coll2 = user2.collections.create name: "Bar Collection"
 coll2.cards << MtgTracker::Card.find(40)
 coll2.cards << MtgTracker::Card.find(1)
 coll2.cards << MtgTracker::Card.find(10)
 coll2.cards << MtgTracker::Card.find(14)
 coll2.cards << MtgTracker::Card.find(113)
 
-MtgTracker::Collection.create! name: "FooBar Collection"
+
+user2.collections.create name: "FooBar Collection"
 
 logger.info "Development Seed complete"

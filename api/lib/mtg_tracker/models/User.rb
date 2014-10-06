@@ -17,6 +17,9 @@ module MtgTracker
       presence: true,
       on: :create,
       length: { minimum: 6 }
+
+    has_many :collections,
+      dependent: :destroy
     
 
     def self.authenticate(email, password)

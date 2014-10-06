@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140928164610) do
+ActiveRecord::Schema.define(version: 20141006212251) do
 
   create_table "cards", force: true do |t|
     t.string   "name"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20140928164610) do
     t.float    "value_max"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "collections", ["name"], name: "index_collections_on_name", unique: true
