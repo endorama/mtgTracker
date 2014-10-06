@@ -6,6 +6,10 @@ require_relative '../models/Collection'
 module MtgTracker
   class CollectionsController < BaseController
 
+    before do
+      authorize!
+    end
+
     # Retrieve all collections
     get '/' do
       items = Collection.all
