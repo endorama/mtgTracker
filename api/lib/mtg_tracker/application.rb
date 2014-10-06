@@ -59,7 +59,14 @@ module MtgTracker
       next unless request.delete? or request.post? or request.put?
       request.body.rewind
       # don't try to read request.body here, cause is a strem and you'll have to rewind it
-      @payload = JSON.parse(request.body.read, symbolize_names: true)
+      begin
+        @payload = JSON.parse(request.body.read, symbolize_names: true)
+      rescue JSON::ParserError => e
+        # prevent breaking from empty payload
+        if e.message == 'A JSON text must at least contain two octets!'
+          @payload = {}
+        end
+      end
     end
 
     retrieve_user do |user_id|
