@@ -5,6 +5,7 @@
   angular.module('mtgTracker', [
     'ui.router',
     'ui.bootstrap',
+    'ui.router.breadcrumbs',
     'mtgTracker.api',
     'mtgTracker.auth',
     'mtgTracker.collections'
