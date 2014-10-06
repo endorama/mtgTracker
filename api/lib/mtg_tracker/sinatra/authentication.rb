@@ -55,7 +55,7 @@ module Sinatra
       end
 
       def authorize!
-        halt 401 unless authorized?
+        halt 401 unless request.options? or authorized?
       end
 
       def auth_token_data
@@ -81,6 +81,7 @@ module Sinatra
 
       # set @current_user if a session is present
       app.before do
+        next if request.options?
         if authorized?
           @current_user = @@retrieve_user_func.call(auth_token_data)
         else
