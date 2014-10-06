@@ -37,6 +37,8 @@ module MtgTracker
       # set :allow_credentials, true
       # set :max_age, "1728000"
       set :expose_headers, ['Content-Type']
+      # http://stackoverflow.com/a/17049157
+      set :allow_headers, [ 'X-Requested-With', 'X-HTTP-Method-Override', 'Content-Type', 'Cache-Control', 'Accept', 'Authorization' ]
     end
 
     respond_to :json
@@ -46,6 +48,11 @@ module MtgTracker
 
     def payload
       @payload
+    end
+
+    # we need to force replying a status 200 to OPTIONS requests ( wtf?? )
+    options '*' do
+      status 200
     end
 
     before do
