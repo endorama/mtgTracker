@@ -26,6 +26,9 @@ require 'jwt'
       retrieve_user do |data_sent_with_respond_with_token|
         # User.find data_sent_with_respond_with_token
       end
+
+  If a user is authenticated, store it's data ( retrieved from db using 
+  retrieve_user ) in a variable @current_user
   
 =end
 
