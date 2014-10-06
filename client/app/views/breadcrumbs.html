@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-12">
+    <ol breadcrumbs class="breadcrumb">
+      <li ui-sref-active="active">
+        <a ui-sref="home">Home</a>
+      </li>
+      <li ng-repeat="breadcrumb in breadcrumbs" ui-sref-active="active">
+        <span 
+          ng-if="breadcrumb.stateName | isState" 
+          ui-sref="{{breadcrumb.stateName}}">{{breadcrumb.text}}</span>
+        <a
+          ng-if="!(breadcrumb.stateName | isState)"
+          ng-class="breadcrumb.class" 
+          ui-sref="{{breadcrumb.stateName}}">{{breadcrumb.text}}</a>
+      </li>
+    </ol>
+  </div>
+</div>

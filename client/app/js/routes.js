@@ -23,7 +23,8 @@
           collections: function(CollectionsSrv) {
             return CollectionsSrv.all();
           }
-        }
+        },
+        breadcrumb: 'Collections'
       })
       .state('collection', {
         url: "/collections/:id",
@@ -36,7 +37,8 @@
           cards: function($stateParams, CollectionsSrv) {
             return CollectionsSrv.cards($stateParams.id);
           }
-        }
+        },
+        breadcrumb: 'Collections'
       })
       .state('cards', {
         url: '/cards/:id',
