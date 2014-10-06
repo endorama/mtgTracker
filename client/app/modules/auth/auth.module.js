@@ -5,6 +5,9 @@
     mtgTracker.auth
 
     Handles authentication
+
+    It uses Satellizer library ( see https://github.com/sahat/satellizer for 
+    docs )
    */
 
   angular

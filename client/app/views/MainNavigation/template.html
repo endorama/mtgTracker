@@ -20,7 +20,14 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
+        <li ng-if="!MainNavigationCtrl.is_authenticated()">
+          <a href ui-sref="signup">Signup</a>
+        </li>
+        <li ng-if="!MainNavigationCtrl.is_authenticated()">
+          <a href ui-sref="login">Login</a>
+        </li>
+        <!--  -->
+        <li ng-if="MainNavigationCtrl.is_authenticated()">
           <a href ui-sref="logout">Logout</a>
         </li>
       </ul>
