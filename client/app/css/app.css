@@ -1,3 +1,7 @@
+html {
+  font-size: 10px;
+}
+
 body {
   background-color: rgb(241, 242, 246);
   
@@ -10,3 +14,9 @@ body {
 .container .jumbotron {
   padding: 20px 60px;
 }
+
+/* on icon to make them BIG! */
+.glyphicon.empty-filler { color: #E6E9ED; }
+.col-md-2 .glyphicon.empty-filler { font-size: 17em; }
+.col-md-3 .glyphicon.empty-filler { font-size: 19em; }
+.col-md-4 .glyphicon.empty-filler { font-size: 27em; }
