@@ -14,7 +14,7 @@ module MtgTracker
       user = User.authenticate email, password
 
       if user
-        respond_with_token user.id
+        respond_with_token user.id, user
       else
         halt_with_400 'Wrong credentials'
       end
