@@ -9,17 +9,15 @@
   // LogoutCtrl.$inject = [  ];
 
   /* @ngInject */
-  function LogoutCtrl ($log, $auth) {
+  function LogoutCtrl (AuthSrv) {
     var vm = this;
-    
 
     activate();
 
     //////////
 
     function activate () {
-      $log.debug('Logout')
-      $auth.logout()
+      AuthSrv.logout();
     }
   };
 

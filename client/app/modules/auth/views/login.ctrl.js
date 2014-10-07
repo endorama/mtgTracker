@@ -9,7 +9,7 @@
   // LoginCtrl.$inject = [  ];
 
   /* @ngInject */
-  function LoginCtrl ($log, $scope, $auth) {
+  function LoginCtrl ($scope, AuthSrv) {
     var vm = this;
 
     vm.login = login;    
@@ -21,10 +21,8 @@
     var _login_errors = null;
 
     function login (formData) {
-      $log.debug('Login', formData)
-      $auth.login(formData)
+      AuthSrv.login(formData)
         .catch(function(reason) {
-          $log.error('Login error', reason)
           _login_errors = reason.data.message;
         });
     };
