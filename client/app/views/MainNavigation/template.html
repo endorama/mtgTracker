@@ -19,15 +19,19 @@
           <a href ui-sref="collections">Collections</a>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li ng-if="!MainNavigationCtrl.is_authenticated()">
+      <ul class="nav navbar-nav navbar-right" ng-if="!navctrl.is_authenticated()">
+        <li>
           <a href ui-sref="signup">Signup</a>
         </li>
-        <li ng-if="!MainNavigationCtrl.is_authenticated()">
+        <li>
           <a href ui-sref="login">Login</a>
         </li>
-        <!--  -->
-        <li ng-if="MainNavigationCtrl.is_authenticated()">
+      </ul>
+      <ul class="nav navbar-nav navbar-right" ng-if="navctrl.is_authenticated()">
+        <li>
+          <a>{{navctrl.current_user.email}}</a>
+        </li>
+        <li>
           <a href ui-sref="logout">Logout</a>
         </li>
       </ul>

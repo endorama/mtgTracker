@@ -8,11 +8,19 @@
 
   // MainNavigationCtrl.$inject = [ '$scope' ];
 
-  function MainNavigationCtrl ($scope, $auth) {
+  function MainNavigationCtrl ($scope, AuthSrv) {
     var vm = this;
 
     vm.collapsed = true;
-    vm.is_authenticated = $auth.isAuthenticated;
+    vm.current_user = get_user();
+    vm.is_authenticated = AuthSrv.isAuthenticated;
+
+    //////////
+
+    function get_user () {
+      return AuthSrv.current_user().then(function(result) { vm.current_user = result; });
+    }
+
   };
 
 }());
