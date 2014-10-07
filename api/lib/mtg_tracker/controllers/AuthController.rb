@@ -29,7 +29,7 @@ module MtgTracker
       # Sanitize payload
       user = User.new(payload)
       if user.save
-        [204, {}]
+        respond_with_token user.id, user
       else
         key = user.errors.keys[0]
         message = user.errors.messages[key][0]
