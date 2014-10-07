@@ -72,7 +72,7 @@ module Sinatra
       app.helpers ErrorHandling::Helpers
 
       app.not_found do
-        halt_with_404
+        halt 404, json(message: "Nothing to see here, sorry", data: nil)
       end
  
       app.error ActiveRecord::RecordNotFound do
