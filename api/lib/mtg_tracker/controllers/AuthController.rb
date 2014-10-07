@@ -6,6 +6,11 @@ require_relative '../models/User'
 module MtgTracker
   class AuthController < BaseController
 
+    get '/user' do
+      respond_with @current_user if @current_user
+      halt_with_401
+    end
+
     post '/login' do
       # PLEASE SANITIZE #
       email = payload[:email]
