@@ -37,5 +37,14 @@ module MtgTracker
         self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
       end
     end
+
+    def serializable_hash(options = {})
+      options = options.try(:clone) || {}
+      
+      options[:except] = [ :password_hash, :password_salt ]
+
+      super(options)
+    end
+
   end
 end
