@@ -51,7 +51,7 @@ module Sinatra
         # if we don't have a token raise an error
         raise JWTTokenNotPresent unless token
         # if the token has expired do not authorize
-        return false if token['exp'] && Time.now >= token['exp']
+        return false if token['exp'] && Time.now.to_i >= token['exp']
         # everything should be ok now :)
         @@token = token
         true
@@ -69,8 +69,8 @@ module Sinatra
         payload = Hash.new
         payload[:iss] = request.url
         payload[:sub] = token_data
-        payload[:iat] = Time.now
-        payload[:exp] = Time.now + settings.jwt_expire
+        payload[:iat] = Time.now.to_i
+        payload[:exp] = Time.now.to_i + settings.jwt_expire.to_i
 
         respond_with token: JWT.encode(payload, settings.jwt_secret), data: custom_data
       end
