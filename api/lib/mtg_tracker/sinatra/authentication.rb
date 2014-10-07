@@ -65,14 +65,14 @@ module Sinatra
         @@token['sub']
       end
 
-      def respond_with_token(data)
+      def respond_with_token(token_data, custom_data)
         payload = Hash.new
         payload[:iss] = request.url
-        payload[:sub] = data
+        payload[:sub] = token_data
         payload[:iat] = Time.now
         payload[:exp] = Time.now + settings.jwt_expire
 
-        respond_with token: JWT.encode(payload, settings.jwt_secret)
+        respond_with token: JWT.encode(payload, settings.jwt_secret), data: custom_data
       end
     end
  
