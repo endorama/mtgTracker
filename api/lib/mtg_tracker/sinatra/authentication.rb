@@ -55,6 +55,9 @@ module Sinatra
         # everything should be ok now :)
         @@token = token
         true
+      rescue JWT::DecodeError => e
+        logger.error "JWT token has errors: #{e.message}"
+        halt_with_401
       end
 
       def authorize!
