@@ -15,7 +15,7 @@
   // AuthSrv.$inject = [ ];
 
   /* @ngInject */
-  function AuthSrv ($log, $auth, $q, Api) {
+  function AuthSrv ($log, $auth, $q, $flash, Api) {
 
     this.current_user = current_user;
     this.isAuthenticated = $auth.isAuthenticated;
@@ -57,9 +57,9 @@
     function signup (data) {
       $log.info('Signup', data);
       return $auth.signup(data)
-        .then(function() {
+        .then(function(result) {
           _current_user = result.data.data;
-          // $flash('SignUp successful! Please login with your new credentials!');
+          $flash.s('SignUp successful! You\'ve been logged in!');
         })
         .catch(function(reason) {
           $log.error('Signup error', reason);

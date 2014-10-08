@@ -13,6 +13,7 @@
   angular
     .module('mtgTracker.auth', [ 
       'mtgTracker.api',
+      'mtgTracker.flash',
       'ui.router',
       'satellizer'
     ]);
