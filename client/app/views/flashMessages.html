@@ -1,0 +1,9 @@
+<div class="col-md-12" ng-controller="FlashCtrl as FlashCtrl">
+  <alert 
+    type="{{FlashCtrl.flash.current().options.type}}" 
+    close="closeAlert($index)"
+    ng-show="FlashCtrl.flash.current()">
+    {{FlashCtrl.flash.current().message}}
+  </alert>
+</div>
+
