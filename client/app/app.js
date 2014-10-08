@@ -7,6 +7,7 @@
     'ui.bootstrap',
     'ui.router.breadcrumbs',
     'mtgTracker.api',
+    'mtgTracker.flash',
     'mtgTracker.auth',
     'mtgTracker.collections'
   ]);
