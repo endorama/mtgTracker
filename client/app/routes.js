@@ -15,31 +15,6 @@
         templateUrl: "views/home.html",
         controller: 'HomeCtrl as HomeCtrl',
       })
-      .state('collections', {
-        url: "/collections",
-        templateUrl: "modules/collections/views/index/template.html",
-        controller: 'CollectionsIndexCtrl as CollectionsIndexCtrl',
-        resolve: {
-          collections: function(CollectionsSrv) {
-            return CollectionsSrv.all();
-          }
-        },
-        breadcrumb: 'Collections'
-      })
-      .state('collection', {
-        url: "/collections/:id",
-        templateUrl: "modules/collections/views/show/template.html",
-        controller: 'CollectionsShowCtrl as CollectionsShowCtrl',
-        resolve: {
-          collection: function($stateParams, CollectionsSrv) {
-            return CollectionsSrv.one($stateParams.id);
-          },
-          cards: function($stateParams, CollectionsSrv) {
-            return CollectionsSrv.cards($stateParams.id);
-          }
-        },
-        breadcrumb: 'Collections'
-      })
       .state('cards', {
         url: '/cards/:id',
         templateUrl: 'modules/cards/views/show/template.html',

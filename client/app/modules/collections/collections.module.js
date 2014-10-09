@@ -9,6 +9,7 @@
 
   angular
     .module('mtgTracker.collections', [
+      'ui.router',
       'mtgTracker.api'
     ]);
 }());
