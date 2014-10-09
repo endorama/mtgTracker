@@ -17,31 +17,31 @@
       // https://github.com/angular-ui/ui-router/wiki#state-change-events
       $rootScope.$on('$stateChangeStart', 
         function(event, toState, toParams, fromState, fromParams) {
-          console.warn(event.name);
+          console.info(event.name, fromState.name, toState.name);
           // console.debug(arguments);
         });
 
       $rootScope.$on('$stateNotFound', 
         function(event, unfoundState, fromState, fromParams) { 
-          console.warn(event.name);
+          console.info(event.name, fromState.name, toState.name);
           // console.debug(arguments);
         });
 
       $rootScope.$on('$stateChangeSuccess', 
         function(event, toState, toParams, fromState, fromParams) {
-          console.warn(event.name);
+          console.info(event.name, fromState.name, toState.name);
           // console.debug(arguments);
         });
 
       $rootScope.$on('$stateChangeError', 
         function(event, toState, toParams, fromState, fromParams, error){
-          console.debug(arguments);
-          console.error(event.name, error.status, error.statusText);
+          // console.debug(arguments);
+          console.error(event.name, fromState.name, toState.name, error.status, error.statusText);
+          // console.error(error.stack);
+          
           if (error.status === 401) {
             $state.go('login');
-            
           }
-          // console.error(error.stack);
         });
 
     });
