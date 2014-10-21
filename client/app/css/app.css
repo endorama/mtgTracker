@@ -20,3 +20,11 @@ body {
 .col-md-2 .glyphicon.empty-filler { font-size: 17em; }
 .col-md-3 .glyphicon.empty-filler { font-size: 19em; }
 .col-md-4 .glyphicon.empty-filler { font-size: 27em; }
+
+/* form feedbacks */
+form .error-container {}
+form .error-container.has-error p {
+  color: #da4453; /* bootflat has-error color */
+  margin-top: 10px;
+  padding: 0 10px;
+}
