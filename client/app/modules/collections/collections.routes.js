@@ -55,6 +55,17 @@
           }
         },
         // breadcrumb: 'Collections'
+      })
+      .state('collections.edit', {
+        url: '/:id/edit',
+        templateUrl: 'modules/collections/views/edit.html',
+        controller: 'CollectionsEditCtrl as CollectionsEditCtrl',
+        resolve: {
+          collection: function($stateParams, CollectionsSrv) {
+            return CollectionsSrv.one($stateParams.id);
+          }
+        },
+        // breadcrumb: 'Collections'
       });
 
   };

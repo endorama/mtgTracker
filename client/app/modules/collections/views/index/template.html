@@ -51,7 +51,8 @@
           <a href ui-sref="collections.show({id: collection.id})">{{collection.name}}</a>
         </td>
         <td>
-          <a href ng-click="CollectionsIndexCtrl.edit(collection.id)"
+          <!-- <a href ng-click="CollectionsIndexCtrl.edit(collection.id)" -->
+          <a href ui-sref="collections.edit({id: collection.id})"
               tooltip="Edit collection" tooltip-placement="right">
             <i class="glyphicon glyphicon-pencil"></i>
           </a>

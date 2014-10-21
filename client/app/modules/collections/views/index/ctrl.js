@@ -13,14 +13,14 @@
 
     vm.collections = collections;
 
-    vm.edit = edit_collection;
+    // vm.edit = edit_collection;
     vm.delete = delete_collection;
 
     //////////
 
-    function edit_collection (coll_id) {
-      console.debug(coll_id)
-    };
+    // function edit_collection (collection) {
+    //   console.debug(collection)
+    // };
 
     function delete_collection (collection) {
       var doConfirm = confirm('Confirm collection deletion?')
