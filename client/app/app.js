@@ -6,6 +6,7 @@
     'ui.router',
     'ui.bootstrap',
     'ui.router.breadcrumbs',
+    'ui.bootstrap.formErrors',
     'mtgTracker.api',
     'mtgTracker.flash',
     'mtgTracker.auth',

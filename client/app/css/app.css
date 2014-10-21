@@ -22,9 +22,10 @@ body {
 .col-md-4 .glyphicon.empty-filler { font-size: 27em; }
 
 /* form feedbacks */
-form .error-container {}
-form .error-container.has-error p {
-  color: #da4453; /* bootflat has-error color */
+form .error-container.has-error {
   margin-top: 10px;
+}
+form .error-container p {
+  color: #da4453; /* bootflat has-error color */
   padding: 0 10px;
 }
