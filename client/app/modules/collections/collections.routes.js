@@ -23,6 +23,12 @@
         template: '<div ui-view></div>',
         breadcrumb: 'Collections'
       })
+      .state('collections.create', {
+        url: '/create',
+        templateUrl: 'modules/collections/views/create.html',
+        controller: 'CollectionsCreateCtrl as CollectionsCreateCtrl',
+        breadcrumb: 'New Collection'
+      })
       .state('collections.index', {
         url: '/',
         templateUrl: 'modules/collections/views/index/template.html',
@@ -49,7 +55,7 @@
           }
         },
         // breadcrumb: 'Collections'
-      })
+      });
 
   };
   

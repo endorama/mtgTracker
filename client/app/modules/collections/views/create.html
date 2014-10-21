@@ -1,0 +1,33 @@
+<div class="row">
+  
+  <div class="col-md-6 col-md-offset-2">
+    
+    <form name="CollectionsCreateForm" ng-submit="CollectionsCreateCtrl.create(formData)"
+          role="form" class="form-horizontal" novalidate>
+      
+      <div class="form-group" ng-class="{ 'has-error': CollectionsCreateCtrl.form_has_error_on('name') }">
+        <label for="collectionName" class="col-sm-2 control-label">Name</label>
+        <div class="col-md-10">
+          <input id="collectionName" name="name"
+                  type="text" class="form-control" placeholder="Enter collection name"
+                  ng-model="formData.name" required>
+          <div class="error-container" ng-class="{ 'has-error': CollectionsCreateCtrl.form_has_error_on('name') }" ng-if="CollectionsCreateCtrl.form_has_error_on('name')">
+            <p ng-show="CollectionsCreateForm.name.$error.required">
+              Collection name should be present
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-offset-10 col-md-2">
+          <button type="submit" class="btn btn-primary" ng-disabled="CollectionsCreateForm.$invalid">Create</button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+
+
+</div>

@@ -34,6 +34,14 @@
       return Api.one('collections', id).all('cards').getList();
     }
 
+    this.create = create;
+
+    //////////
+
+    function create (collection) {
+      return Api.all('collections').post(collection);
+    }
+
     return this;
   };
 
