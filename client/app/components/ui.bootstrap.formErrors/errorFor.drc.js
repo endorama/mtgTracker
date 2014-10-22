@@ -43,7 +43,7 @@
       var errorForValidator = attributes.errorFor;
 
       scope.$watch(function () { 
-        return formCtrl[errorForField].$error[errorForValidator];
+        return formCtrl[errorForField].$dirty && formCtrl[errorForField].$error[errorForValidator];
       },
         function (newVal) {
           element.toggleClass('ng-hide', !newVal);

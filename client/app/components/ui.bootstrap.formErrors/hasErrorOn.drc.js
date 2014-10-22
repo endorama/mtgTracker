@@ -44,7 +44,7 @@
       });
 
       function hasError () {
-        return formCtrl[attrName].$invalid;
+        return formCtrl[attrName].$dirty && formCtrl[attrName].$invalid;
       }
 
     };
