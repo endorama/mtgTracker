@@ -14,7 +14,6 @@
     
     $scope.formData = angular.copy(collection);
     vm.save = save;
-    vm.form_has_error_on = form_has_error_on;
 
     //////////
 
@@ -29,11 +28,6 @@
           $log.error(reason);
           alert('Cannot save collection.');
         });
-    }
-
-    function form_has_error_on (field) {
-      var field = $scope.CollectionsEditForm[field];
-      return !field.$pristine && field.$invalid;
     }
 
   };

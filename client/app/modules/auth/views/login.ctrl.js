@@ -13,7 +13,6 @@
     var vm = this;
 
     vm.login = login;    
-    vm.form_has_error_on = form_has_error_on;
     vm.has_login_errors = has_login_errors;
     vm.login_errors = login_errors;
 
@@ -25,11 +24,6 @@
         .catch(function(reason) {
           _login_errors = reason.data.message;
         });
-    };
-
-    function form_has_error_on (field) {
-      var field = $scope.LoginForm[field];
-      return !field.$pristine && field.$invalid;
     };
 
     function has_login_errors () {

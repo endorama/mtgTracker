@@ -13,7 +13,6 @@
     var vm = this;
     
     vm.create = create;
-    vm.form_has_error_on = form_has_error_on;
 
     //////////
 
@@ -27,11 +26,6 @@
           $log.error(reason);
           alert('Cannot create collection.');
         });
-    }
-
-    function form_has_error_on (field) {
-      var field = $scope.CollectionsCreateForm[field];
-      return !field.$pristine && field.$invalid;
     }
 
   };
