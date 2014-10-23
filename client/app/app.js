@@ -25,7 +25,7 @@
 
       $rootScope.$on('$stateNotFound', 
         function(event, unfoundState, fromState, fromParams) { 
-          console.info(event.name, fromState.name, toState.name);
+          console.info(event.name, unfoundState.to);
           // console.debug(arguments);
         });
 
