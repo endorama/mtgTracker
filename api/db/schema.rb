@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141006212251) do
+ActiveRecord::Schema.define(version: 20141023234016) do
 
   create_table "cards", force: true do |t|
     t.string   "name"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20141006212251) do
     t.integer  "multiverse_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "manaCost"
+    t.integer  "cmc"
+    t.text     "colors"
+    t.string   "type"
+    t.text     "supertypes"
+    t.text     "types"
+    t.text     "subtypes"
+    t.text     "text"
+    t.integer  "power"
+    t.integer  "toughness"
   end
 
   add_index "cards", ["name", "set_id"], name: "index_cards_on_name_and_set_id", unique: true
@@ -62,8 +72,8 @@ ActiveRecord::Schema.define(version: 20141006212251) do
 
   create_table "users", force: true do |t|
     t.string   "email"
-    t.string   "password_hash"
-    t.string   "password_salt"
+    t.binary   "password_hash", limit: 255
+    t.binary   "password_salt", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
