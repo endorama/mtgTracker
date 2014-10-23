@@ -15,7 +15,15 @@ module MtgTracker
       message: "Only one card of the same name for MtgSet"
     }
 
+    serialize :colors
+    serialize :type
+    serialize :supertypes
+    serialize :types
+    serialize :subtypes
+
     enum rarity: [ :mythic, :rare, :uncommon, :common, :special, :land ]
+
+    self.inheritance_column = 'inheritable_type'
 
     scope :named, lambda { |name| where "name = ? OR name_it = ?", name, name }
 

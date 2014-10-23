@@ -55,9 +55,19 @@ sets.each_with_index do |set, set_idx|
     new_card = {
       name: card[:name],
       name_it: italian_name,
-      number: card[:number],
-      image_name: card[:imageName],
+      manaCost: card[:manaCost],
+      cmc: card[:cmc],
+      colors: card[:colors],
+      type: card[:type],
+      supertypes: card[:supertypes],
+      types: card[:types],
+      subtypes: card[:subtypes],
       rarity: card[:rarity],
+      text: card[:text],
+      number: card[:number],
+      power: card[:power].to_i,
+      toughness: card[:toughness].to_i,
+      image_name: card[:imageName],
       multiverse_id: card[:multiverseid]
     }
 
