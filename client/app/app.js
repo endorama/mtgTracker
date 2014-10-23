@@ -10,7 +10,8 @@
     'mtgTracker.api',
     'mtgTracker.flash',
     'mtgTracker.auth',
-    'mtgTracker.collections'
+    'mtgTracker.collections',
+    'mtgTracker.cards'
   ]);
 
   angular.module('mtgTracker')

@@ -14,16 +14,6 @@
         url: '/',
         templateUrl: "views/home.html",
         controller: 'HomeCtrl as HomeCtrl',
-      })
-      .state('cards', {
-        url: '/cards/:id',
-        templateUrl: 'modules/cards/views/show/template.html',
-        controller: 'CardShowCtrl as CardShowCtrl',
-        resolve: {
-          card: function($stateParams, CardsSrv) {
-            return CardsSrv.one($stateParams.id);
-          }
-        }
       });
   });
 
