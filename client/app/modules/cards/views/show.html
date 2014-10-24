@@ -3,12 +3,26 @@
     <img class="col-md-12" src="http://mtgimage.com/card/{{CardsShowCtrl.card.image_name}}.jpg">
   </div>
   <div class="col-md-9">
-    <h1>{{CardsShowCtrl.card.name}}</h1>
-    <div class="col-md-6">
-      {{CardsShowCtrl.card.set.name}}
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title">{{CardsShowCtrl.card.name}}</h2>
+      </div>
+      <div class="panel-body">
+        <div class="col-md-6">
+          {{CardsShowCtrl.card.set.name}}
+        </div>
+        <div class="col-md-6">
+          {{CardsShowCtrl.card.rarity | rarity}}
+        </div>
+
+        <hr />
+        
+        <div class="col-md-12">
+          {{CardsShowCtrl.card.text}}
+        </div>
+      </div>
     </div>
-    <div class="col-md-6">
-      {{CardsShowCtrl.card.rarity}}
-    </div>
+
   </div>
 </div>
