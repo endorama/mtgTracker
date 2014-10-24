@@ -31,7 +31,7 @@
       })
       .state('collections.index', {
         url: '/',
-        templateUrl: 'modules/collections/views/index/template.html',
+        templateUrl: 'modules/collections/views/index.html',
         controller: 'CollectionsIndexCtrl as CollectionsIndexCtrl',
         resolve: {
           collections: function(CollectionsSrv) {
@@ -42,7 +42,7 @@
       })
       .state('collections.show', {
         url: '/:id',
-        templateUrl: 'modules/collections/views/show/template.html',
+        templateUrl: 'modules/collections/views/show.html',
         controller: 'CollectionsShowCtrl as CollectionsShowCtrl',
         resolve: {
           collection: function($stateParams, CollectionsSrv) {
