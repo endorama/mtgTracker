@@ -10,36 +10,27 @@
   function Service(Api) {
     var self = this;
 
-    this.all = function() {
-      return Api.all('collections').getList().then(function(collections) { 
-        // console.debug(collections);
-
-        // console.debug(collections.length);
-
-        // for (var i = 0; i < collections.length; i++) {
-        //   console.debug(collections[i])
-        // };
-        return collections
-      });     
-    }
-
-    this.one = function(id) {
-      // return Api.one('collections', id).get().then(function(collection) {
-      //   return collection;
-      // });     
-      return Api.one('collections', id).get(); 
-    }
-
-    this.cards = function(id) {
-      return Api.one('collections', id).all('cards').getList();
-    }
-
-    this.create = create;
+    this.all     = all;
+    this.cards   = cards;
+    this.create  = create;
+    this.one     = one;
 
     //////////
 
+    function all () {
+      return Api.all('collections').getList();
+    }
+
+    function cards (id) {
+      return Api.one('collections', id).all('cards').getList();
+    }
+
     function create (collection) {
       return Api.all('collections').post(collection);
+    }
+
+    function one (id) {   
+      return Api.one('collections', id).get(); 
     }
 
     return this;
