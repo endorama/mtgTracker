@@ -1,8 +1,22 @@
 
 <div class="row">
-  <p class="col-md-12">
-    View cards in {{CollectionsShowCtrl.collection.name}}
-  </p>
+  <div class="col-md-9">
+    <p>
+      View cards in {{CollectionsShowCtrl.collection.name}}
+    </p>
+  </div>
+
+  <div class="col-md-3">
+    <div class="btn-toolbar pull-right" role="toolbar">
+      <!-- <div class="btn-group"> -->
+        <a class="btn btn-primary" 
+            ui-sref="collections.addCard({id: CollectionsShowCtrl.collection.id})"
+            tooltip="Add card to collection" tooltip-placement="bottom">
+          <i class="glyphicon glyphicon-plus-sign"></i>
+        </a>
+      <!-- </div> -->
+    </div>
+  </div>
 </div>
 
 <div class="row">

@@ -1,0 +1,37 @@
+<div class="row">
+  
+  <div class="col-md-6 col-md-offset-2">
+
+    <p class="well">
+      Name must be exactly typed and in English!!!
+    </p>
+    
+    <form name="CollectionsAddCardForm" ng-submit="CollectionsAddCardCtrl.addCard(formData)"
+          role="form" class="form-horizontal" novalidate>
+      
+      <div class="form-group" has-error-on="name">
+        <label for="cardName" class="col-sm-2 control-label">Name</label>
+        <div class="col-md-10">
+          <input id="cardName" name="name"
+                  type="text" class="form-control" placeholder="Enter card name"
+                  ng-model="formData.name" required>
+          <div class="error-container" has-error-on="name">
+            <p error-for="required">
+              Card name should be present
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-offset-10 col-md-2">
+          <button type="submit" class="btn btn-primary" ng-disabled="CollectionsAddCardForm.$invalid">Add Card</button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+
+
+</div>

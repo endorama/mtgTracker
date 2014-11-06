@@ -66,6 +66,16 @@
           }
         },
         // breadcrumb: 'Collections'
+      })
+      .state('collections.addCard', {
+        url: '/:id/addCard',
+        templateUrl: 'modules/collections/views/addCard.html',
+        controller: 'CollectionsAddCardCtrl as CollectionsAddCardCtrl',
+        resolve: {
+          collection: function($stateParams, CollectionsSrv) {
+            return CollectionsSrv.one($stateParams.id);
+          }
+        },
       });
 
   };
