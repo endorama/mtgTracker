@@ -1,5 +1,5 @@
 
-require_relative 'generic/string'
+require_relative 'core_ext/string'
 
 require_relative 'mtg_tracker/version'
 # Require all models
