@@ -55,7 +55,7 @@ module MtgTracker
 
     # Add a card to the collection
     post '/:id/cards' do
-      card = Card.find(payload[:id])
+      card = Card.find_by name: payload[:name]
       @current_user.collections.find(params[:id]).cards.push(card)
 
       # we need to refetch the collection
@@ -65,7 +65,7 @@ module MtgTracker
 
     # Delete a card from the collection
     delete '/:id/cards' do 
-      card = Card.find(payload[:id])
+      card = Card.find_by name: payload[:name]
       @current_user.collections.find(params[:id]).cards.delete(card)
 
       # we need to refetch the collection
