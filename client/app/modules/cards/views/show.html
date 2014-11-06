@@ -1,26 +1,52 @@
 <div class="row">
-  <div class="col-md-3">
-    <img class="col-md-12" src="http://mtgimage.com/card/{{CardsShowCtrl.card.image_name}}.jpg">
+  <div class="col-md-4">
+    <card-image class="col-md-12" image="{{CardsShowCtrl.card.image_name}}"></card-image>
   </div>
-  <div class="col-md-9">
+  <div class="col-md-8">
 
     <div class="panel panel-default">
       <div class="panel-heading">
         <h2 class="panel-title">{{CardsShowCtrl.card.name}}</h2>
       </div>
       <div class="panel-body">
-        <div class="col-md-6">
-          {{CardsShowCtrl.card.set.name}}
-        </div>
-        <div class="col-md-6">
-          {{CardsShowCtrl.card.rarity | rarity}}
+        <div class="row">
+          
+          <div class="col-md-6">
+            <set-symbol width="medium" code="{{CardsShowCtrl.card.set.code}}"></set-symbol>
+            {{CardsShowCtrl.card.set.name}}
+          </div>
+          <div class="col-md-6">
+            {{CardsShowCtrl.card.rarity | rarity}}
+          </div>
+
         </div>
 
         <hr />
         
-        <div class="col-md-12">
-          {{CardsShowCtrl.card.text}}
+        <div class="row">
+          
+          <div class="col-md-12">
+            {{CardsShowCtrl.card.text}}
+          </div>
+
         </div>
+
+        <hr />
+
+        <div class="row">
+          
+          <div class="col-md-4">
+            Power: {{CardsShowCtrl.card.power}}
+          </div>
+          <div class="col-md-4">
+            Toughness: {{CardsShowCtrl.card.toughness}}
+          </div>
+          <div class="col-md-4">
+            Mana cost: {{CardsShowCtrl.card.manaCost}}
+          </div>
+
+        </div>
+
       </div>
     </div>
 
