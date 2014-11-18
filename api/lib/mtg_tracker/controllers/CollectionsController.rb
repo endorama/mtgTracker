@@ -64,13 +64,12 @@ module MtgTracker
     end
 
     # Delete a card from the collection
-    delete '/:id/cards' do 
-      card = Card.find_by name: payload[:name]
-      @current_user.collections.find(params[:id]).cards.delete(card)
-
-      # we need to refetch the collection
+    delete '/:id/cards/:card_id' do 
       collection = @current_user.collections.find(params[:id])
-      respond_with collection.cards
+      collectionable = collection.collectionables.find_by(card_id: params[:card_id])
+      collection.collectionables.delete(collectionable)
+
+      respond_with true
     end
 
   end
