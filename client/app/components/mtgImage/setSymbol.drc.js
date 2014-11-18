@@ -45,14 +45,7 @@
       }
 
       function calculateWidth() {
-        switch (attributes.width) {
-          case 'small':
-            element.attr('width', 30);
-            break;
-          
-          default:
-            element.attr('width', 50);
-        }
+        element.attr('width', mtgImage.calculateWidth(attributes.width));
       }
     };
 

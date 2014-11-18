@@ -17,11 +17,23 @@
   function mtgImage () {
     var self = this;
     
-    this.getSet = getSet;
+    this.calculateWidth = calculateWidth;
+    this.getSet         = getSet;
 
     return this;
 
     //////////
+
+    function calculateWidth(width) {
+      switch (width) {
+        case 'small':
+          return 30;
+          break;
+        
+        default:
+          return 50;
+      }
+    }
 
     function getSet(setCode) {
       return 'http://mtgimage.com/symbol/set/' + setCode + '/common.svg';
