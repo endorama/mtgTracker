@@ -1,0 +1,14 @@
+/**
+ 
+  All kind of glypicon styles
+
+ */
+
+/* on icon to make them BIG! */
+.glyphicon.empty-filler { color: #E6E9ED; }
+.col-md-2 .glyphicon.empty-filler { font-size: 17em; }
+.col-md-3 .glyphicon.empty-filler { font-size: 19em; }
+.col-md-4 .glyphicon.empty-filler { font-size: 27em; }
+
+/* colorize */
+.glyphicon.gold { color: #F6BB42; }
