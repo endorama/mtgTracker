@@ -31,9 +31,7 @@
     }
 
     function removeCard(card) {
-      console.debug(collection)
-      // collection.remove('cards', card)
-      collection.customDELETE('cards', card)
+      card.remove()
         .then(function () {
           $flash.s('The card has been removed!');
           $state.forceReload();
