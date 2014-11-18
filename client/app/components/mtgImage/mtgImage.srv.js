@@ -19,6 +19,7 @@
     
     this.calculateWidth = calculateWidth;
     this.getSet         = getSet;
+    this.getSetRarity   = getSetRarity;
 
     return this;
 
@@ -39,6 +40,9 @@
       return 'http://mtgimage.com/symbol/set/' + setCode + '/common.svg';
     }
 
+    function getSetRarity(setCode, setRarity) {
+      return 'http://mtgimage.com/symbol/set/' + setCode + '/' + setRarity + '.svg';
+    }
     
   };
 
