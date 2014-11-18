@@ -36,23 +36,33 @@ cards.each do |card|
     end
   end
 
+  # enum fields needs to be expressed as integers
+  case card[:rarity].downcase
+    when 'common'   then card_rarity = 0
+    when 'uncommon' then card_rarity = 1
+    when 'rare'     then card_rarity = 2
+    when 'mythic'   then card_rarity = 3
+    when 'special'  then card_rarity = 4
+    when 'land'     then card_rarity = 5
+  end
+
   new_card = {
     name: card[:name],
-      name_it: italian_name,
-      manaCost: card[:manaCost],
-      cmc: card[:cmc],
-      colors: card[:colors],
-      type: card[:type],
-      supertypes: card[:supertypes],
-      types: card[:types],
-      subtypes: card[:subtypes],
-      rarity: card[:rarity],
-      text: card[:text],
-      number: card[:number],
-      power: card[:power].to_i,
-      toughness: card[:toughness].to_i,
-      image_name: card[:imageName],
-      multiverse_id: card[:multiverseid]
+    name_it: italian_name,
+    manaCost: card[:manaCost],
+    cmc: card[:cmc],
+    colors: card[:colors],
+    type: card[:type],
+    supertypes: card[:supertypes],
+    types: card[:types],
+    subtypes: card[:subtypes],
+    rarity: card_rarity,
+    text: card[:text],
+    number: card[:number],
+    power: card[:power].to_i,
+    toughness: card[:toughness].to_i,
+    image_name: card[:imageName],
+    multiverse_id: card[:multiverseid]
   }
 
   set = MtgTracker::Set.find_by code: 'LEA'

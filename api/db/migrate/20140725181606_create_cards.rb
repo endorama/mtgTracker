@@ -9,7 +9,7 @@ class CreateCards < ActiveRecord::Migration
       t.string :number
       t.belongs_to :set
       t.string :image_name
-      t.integer :rarity # will be enum
+      t.integer :rarity, default: 0
       t.integer :multiverse_id
       t.timestamps
     end

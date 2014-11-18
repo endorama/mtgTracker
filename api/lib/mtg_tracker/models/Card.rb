@@ -21,7 +21,7 @@ module MtgTracker
     serialize :types
     serialize :subtypes
 
-    enum rarity: [ :mythic, :rare, :uncommon, :common, :special, :land ]
+    enum rarity: [ :common, :uncommon, :rare, :mythic, :special, :land ]
 
     self.inheritance_column = 'inheritable_type'
 
