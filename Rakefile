@@ -12,18 +12,18 @@ ActiveRecord::Tasks::DatabaseTasks.database_configuration = YAML.load_file("conf
 namespace :annotate do
   desc "Annotate your models"
   task :models do |t, args|
-    exec "annotate  --model-dir lib/mtg_tracker/models --position after"
+    exec "annotate  --model-dir ./models --position after"
   end
 end
 
 namespace :app do
-  desc "Run backend"
+  desc "Serve application"
   # http://viget.com/extend/protip-passing-parameters-to-your-rake-tasks
   task :run, [:env] do |t, args|
     env = args[:env] || 'development'
 
     puts "Running in #{env} mode"
-    exec "rerun --clear --dir lib -- rackup -E #{env} -p 4567"
+    exec "rerun --clear -- rackup -E #{env} -p 4567"
   end
 end
 
@@ -47,7 +47,7 @@ task :routes do
   else
     abort("Cannot find any defined routes.....")
   end
-  
+
   endpoints.each do |app_name,routes|
     if app_name.to_s.include? 'Controller'
       name = '/' + app_name.to_s.split('::')[1].gsub('Controller', '').downcase

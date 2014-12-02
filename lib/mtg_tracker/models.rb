@@ -1,7 +1,0 @@
-# -*- encoding: utf-8 -*-
-
-require_relative 'models/Card'
-require_relative 'models/Collection'
-require_relative 'models/Collectionable'
-require_relative 'models/Set'
-require_relative 'models/User'
