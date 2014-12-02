@@ -7,13 +7,18 @@
 
   <div class="col-md-3">
     <div class="btn-toolbar pull-right" role="toolbar">
-      <!-- <div class="btn-group"> -->
+      <div class="btn-group">
         <a class="btn btn-primary" 
             ui-sref="collections.addCard({id: CollectionsShowCtrl.collection.id})"
             tooltip="Add card to collection" tooltip-placement="bottom">
-          <i class="glyphicon glyphicon-plus-sign"></i>
+            <i glyphicon="plus-sign"></i>
         </a>
-      <!-- </div> -->
+        <a class="btn btn-secondary"
+        ui-sref="collections.bulkAddCard({id: CollectionsShowCtrl.collection.id})"
+          tooltip="Import cards into collection" tooltip-placement="bottom">
+          <i glyphicon="circle-arrow-up"></i>
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -51,10 +56,16 @@
           <rarity-symbol width="small" code="{{card.set.code}}" rarity="{{card.rarity}}"></rarity-symbol>
         </td>
         <td>
-          <i class="glyphicon glyphicon-plus-sign"
+          <i glyphicon="plus-sign"
               tooltip="Add 1 of this card" ng-click="CollectionsShowCtrl.addCard(card)"></i>
-          <i class="glyphicon glyphicon-minus-sign"
+          <i glyphicon="minus-sign"
               tooltip="Remove 1 of this card" ng-click="CollectionsShowCtrl.removeCard(card)"></i>
+          <!-- |
+          <i class="gold" glyphicon="plus-sign"
+              tooltip="Add 1 of this card Foil" ng-click="CollectionsShowCtrl.addCard(card)"></i>
+          <i class="gold" glyphicon="minus-sign"
+              tooltip="Remove 1 of this card Foil" ng-click="CollectionsShowCtrl.removeCard(card)"></i>
+          -->
         </td>
       </tr>
     </tbody>

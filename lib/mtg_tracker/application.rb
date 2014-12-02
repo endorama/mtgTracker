@@ -27,9 +27,11 @@ module MtgTracker
       disable :show_exceptions
       # Default set by sinatra/activerecord
       # set :database_file, "../../config/database.yml"
+      set :public_folder, 'public'
     end
 
     configure :development do
+      set :public_folder, 'public/app'
       # enable cors request
       enable :cross_origin
       set :allow_origin, 'http://localhost:8000'
@@ -39,6 +41,10 @@ module MtgTracker
       set :expose_headers, ['Content-Type']
       # http://stackoverflow.com/a/17049157
       set :allow_headers, [ 'X-Requested-With', 'X-HTTP-Method-Override', 'Content-Type', 'Cache-Control', 'Accept', 'Authorization' ]
+    end
+
+    configure :production do
+      set :public_folder, 'public/app'
     end
 
     respond_to :json
@@ -74,8 +80,8 @@ module MtgTracker
     end
 
     get '/' do
-      respond_with 'Hello World!'
-      # redirect_to '/app/'
+      content_type 'html'
+      send_file File.join(settings.public_folder, 'index.html')
     end
 
     get '/foo' do

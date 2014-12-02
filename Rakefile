@@ -18,6 +18,7 @@ end
 
 namespace :app do
   desc "Run backend"
+  # http://viget.com/extend/protip-passing-parameters-to-your-rake-tasks
   task :run, [:env] do |t, args|
     env = args[:env] || 'development'
 
