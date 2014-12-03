@@ -7,13 +7,16 @@ gem 'sinatra-activerecord'
 gem 'sinatra-contrib'
 gem 'activerecord'
 gem 'rubyzip'
-gem "sinatra-cross_origin", "~> 0.3.1" # https://github.com/britg/sinatra-cross_origin
+gem 'sinatra-cross_origin', '~> 0.3.1' # https://github.com/britg/sinatra-cross_origin
 gem 'bcrypt'
 gem 'jwt'
 
 group :development do
   gem 'rerun'
-  gem 'thin', '1.6.2'
   gem 'sqlite3'
   gem 'annotate', '>=2.6.0'
+end
+
+group :production do
+  gem 'thin', '1.6.2'
 end
