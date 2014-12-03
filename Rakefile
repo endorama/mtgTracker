@@ -23,7 +23,15 @@ namespace :app do
     env = args[:env] || 'development'
 
     puts "Running in #{env} mode"
-    exec "rerun --clear -- rackup -E #{env} -p 4567"
+
+    case env
+    when 'development'
+      exec "bundle exec rerun --clear -- rackup -E #{env} -p 4567"
+    when 'production'
+      exec "bundle exec thin start -R config.ru -e $RACK_ENV -p $PORT"
+    end
+
+
   end
 end
 
